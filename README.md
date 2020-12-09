@@ -1,1 +1,1 @@
-# GlobusHakton-Frontend
+# Globus Hadkton Frontend
