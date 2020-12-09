@@ -1,0 +1,40 @@
+<ac-layer acFor="let plane of planes$" [show]="show" [context]="this" [store]="true">
+  <ac-billboard-desc props="{
+      image: plane.image,
+      position: plane.position,
+      color: getPlaneColor(plane),
+      scale: 0.1,
+      name: plane.callsign,
+      rotation: -plane.heading
+    }">
+  </ac-billboard-desc>
+
+  <ac-label-primitive-desc props="{
+        position: plane.position,
+        pixelOffset : pixelOffset([-15,20]) ,
+        text: plane.callsign,
+        font: '30px sans-serif',
+        scale: 0.5,
+        fillColor: getTextColor(plane)
+    }">
+  </ac-label-primitive-desc>
+
+  <ac-label-primitive-desc props="{
+        position: plane.position,
+        pixelOffset : pixelOffset([-15,35]),
+        text: plane.alt.toString(),
+        font: '30px sans-serif',
+        scale: 0.5,
+        fillColor: getTextColor(plane)
+    }">
+  </ac-label-primitive-desc>
+
+  <ac-model-desc props="{
+        position: plane.position,
+        minimumPixelSize: 300,
+        maximumScale : 20000,
+        uri: '/assets/CesiumAir/Cesium_Air.gltf',
+        orientation: plane.orientation
+       }">
+  </ac-model-desc>
+</ac-layer>

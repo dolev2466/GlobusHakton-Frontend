@@ -4,7 +4,7 @@ import {
   SceneMode,
   ViewerConfiguration,
 } from 'angular-cesium';
-import { AppSettingsService } from '../../../services/app-settings.service';
+import { AppSettingsService } from '../../services/app-settings.service';
 
 @Component({
   selector: 'app-cesium-map',

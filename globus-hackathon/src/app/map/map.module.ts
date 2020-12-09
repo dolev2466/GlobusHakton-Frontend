@@ -5,9 +5,10 @@ import {
   AngularCesiumWidgetsModule,
 } from 'angular-cesium';
 import { CesiumMapComponent } from './cesium-map/cesium-map.component';
+import { AircraftLayerComponent } from './aircraft-layer/aircraft-layer.component';
 
 @NgModule({
-  declarations: [CesiumMapComponent],
+  declarations: [CesiumMapComponent, AircraftLayerComponent],
   imports: [
     CommonModule,
     AngularCesiumModule.forRoot(),
