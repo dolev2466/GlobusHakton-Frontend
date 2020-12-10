@@ -50,4 +50,8 @@ export class CesiumMapComponent implements OnInit {
   addAircraft(): void {
     this.createdAircraftCount += 1;
   }
+
+  latChange(): void {}
+  lonChange(): void {}
+  altChange(): void {}
 }
