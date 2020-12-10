@@ -17,6 +17,8 @@ export class CesiumMapComponent implements OnInit {
   sceneMode = SceneMode.SCENE3D;
   Cesium = Cesium;
 
+  createdAircraftCount = 0;
+
   constructor(
     private viewerConf: ViewerConfiguration,
     public appSettingsService: AppSettingsService
@@ -44,4 +46,8 @@ export class CesiumMapComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  addAircraft(): void {
+    this.createdAircraftCount += 1;
+  }
 }

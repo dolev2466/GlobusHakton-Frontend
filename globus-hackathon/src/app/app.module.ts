@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapModule } from './map/map.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, MapModule],
+  imports: [BrowserModule, AppRoutingModule, MapModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

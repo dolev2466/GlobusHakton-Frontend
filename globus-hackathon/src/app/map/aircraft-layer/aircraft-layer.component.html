@@ -1,40 +1,45 @@
-<ac-layer acFor="let plane of planes$" [show]="show" [context]="this" [store]="true">
-  <ac-billboard-desc props="{
-      image: plane.image,
-      position: plane.position,
-      color: getPlaneColor(plane),
-      scale: 0.1,
-      name: plane.callsign,
-      rotation: -plane.heading
-    }">
-  </ac-billboard-desc>
-
-  <ac-label-primitive-desc props="{
-        position: plane.position,
-        pixelOffset : pixelOffset([-15,20]) ,
-        text: plane.callsign,
-        font: '30px sans-serif',
-        scale: 0.5,
-        fillColor: getTextColor(plane)
-    }">
-  </ac-label-primitive-desc>
-
-  <ac-label-primitive-desc props="{
-        position: plane.position,
-        pixelOffset : pixelOffset([-15,35]),
-        text: plane.alt.toString(),
-        font: '30px sans-serif',
-        scale: 0.5,
-        fillColor: getTextColor(plane)
-    }">
-  </ac-label-primitive-desc>
-
+<ac-layer acFor="let aircraft of realAircrafts$" [show]="true" [context]="this" [store]="true">
   <ac-model-desc props="{
-        position: plane.position,
-        minimumPixelSize: 300,
-        maximumScale : 20000,
-        uri: '/assets/CesiumAir/Cesium_Air.gltf',
-        orientation: plane.orientation
+        verticalOrigin: originBottom,
+        position: createPosition(aircraft.longitude, aircraft.latitude, aircraft.altitude),
+        minimumPixelSize: 150,
+        maximumScale : 7000,
+        scale: 1.0,
+        uri: '/assets/Cesium_Air.glb',
+        orientation: createOrientation(aircraft)
        }">
   </ac-model-desc>
+
+  <ac-label-desc props="{
+        verticalOrigin: originTop,
+        position: createPosition(aircraft.longitude, aircraft.latitude, aircraft.altitude),
+        pixelOffset: offset,
+        text: aircraft.callSign,
+        color: getColor(),
+        font: '10px sans-serif'
+    }">
+  </ac-label-desc>
+</ac-layer>
+
+<ac-layer acFor="let aircraft of mongoAircrafts$" [show]="true" [context]="this" [store]="true">
+  <ac-model-desc props="{
+        verticalOrigin: originBottom,
+        position: createPosition(aircraft.longitude, aircraft.latitude, aircraft.altitude),
+        minimumPixelSize: 150,
+        maximumScale : 7000,
+        scale: 1.0,
+        uri: '/assets/Cesium_Air.glb',
+        orientation: createOrientation(aircraft)
+       }">
+  </ac-model-desc>
+
+  <ac-label-desc props="{
+        verticalOrigin: originTop,
+        position: createPosition(aircraft.longitude, aircraft.latitude, aircraft.altitude),
+        pixelOffset: offset,
+        text: aircraft.callSign,
+        color: getColor(),
+        font: '10px sans-serif'
+    }">
+  </ac-label-desc>
 </ac-layer>

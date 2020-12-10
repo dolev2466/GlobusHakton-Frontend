@@ -1,4 +1,10 @@
 <ac-map [sceneMode]="sceneMode" id="main-map">
+  <button mat-raised-button (click)="addAircraft()" class="fixed-pos">Create</button>
+  <input (change)="latChange" placeholder="Latitude"/>
+  <input (change)="lonChnage" placeholder="Latitude" />
+  <input (change)="altChange" placeholder="Latitude" />
+
+
   <ac-map-layer-provider
     [show]="appSettingsService.showMapLayer"
     [provider]="mapProvider"
@@ -6,6 +12,9 @@
       url : 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
     }"
   >
+<!--  <button content="tyvvfvfty"></button>-->
+
   </ac-map-layer-provider>
   <!-- Add app-aircraft-layer here -->
+  <app-aircraft-layer></app-aircraft-layer>
 </ac-map>

@@ -9,11 +9,11 @@ import {flatMap} from "rxjs/operators";
 @Injectable({
   providedIn: 'root',
 })
-export class OpenSkyAircraftService {
+export class MongoAircraftService {
   constructor( private http: HttpClient) {}
 
   getAirCrafts(): Observable<Aircraft[]>{
     return interval(5_000).pipe(flatMap(() =>
-      this.http.get<Aircraft[]>('https://globus-hackathon-opensky.herokuapp.com/OpenSky')));
+      this.http.get<Aircraft[]>('https://globus-hackathon.herokuapp.com/Aircraft')));
   }
 }
